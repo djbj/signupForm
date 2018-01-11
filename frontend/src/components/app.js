@@ -8,34 +8,24 @@ class App extends React.Component {
       email: "",
       password: ""
     }
-    this.handleInputChangeUsername = this.handleInputChangeUsername.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    // this.handleInputChange = this.handleInputChange.bind(this)
+    // this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-// handleInputChange(event) {
-//     console.log("Event.target " + event.target)
-//     const target = event.target
-//     const value = target.value
-//     const name = target.name
-//
-//     this.setState({
-//       [name]: value
-//     })
-//     console.log("handleInputChange")
-//   }
-
-handleInputChangeUsername (event) {
-  console.log(event.target.value)
+handleInputChange = event => {
+  const target = event.target
+  const value = target.value
+  const name = target.name
 
   this.setState({
-    userName: event.target.value
-      })
-
+    [name]: value
+  })
+  console.log(this.state)
 }
 
 handleSubmit = event => {
   event.preventDefault()
-  console.log("Im handling submit and state is now: " + this.state.userName)
+  console.log(this.state.userName, this.state.email, this.state.password)
 }
 
 render() {
@@ -43,17 +33,13 @@ render() {
     <div className="signup-container">
       <form className="signup-form" onSubmit={this.handleSubmit}>
         <label>
-          Username: <input type="text" name="username" value={this.state.userName} onChange={this.handleInputChangeUsername} />
+          Username: <input type="text" name="userName" value={this.state.userName} onChange={this.handleInputChange} />
         </label>
         <label>
-          Email: <input type="email" name="email"
-            // onChange={this.handleInputChange}
-          />
+          Email: <input type="email" name="email" value={this.state.email} onChange={this.handleInputChange} />
         </label>
         <label>
-          Password: <input type="password" name="psw"
-            // onChange={this.handleInputChange}
-          />
+          Password: <input type="password" name="password" value={this.state.password} onChange={this.handleInputChange} />
         </label>
         <input className="submit" type="submit" value="Submit" />
       </form>
