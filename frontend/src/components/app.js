@@ -20,7 +20,7 @@ handleInputChange = event => {
   this.setState({
     [name]: value
   })
-  console.log(this.state)
+  console.log("State is set to: " + this.state.userName + " " + this.state.email + " " + this.state.password)
 }
 
 handleSubmit = event => {
